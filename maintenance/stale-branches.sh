@@ -4,11 +4,11 @@
 # prints NOTHING when there is nothing to report (so the Hermes no_agent cron job
 # stays silent on empty). Phase G3 artifact.
 #
-# Scope auto-extends: it scans every git repo under ~/github/engels74-bot/, so when
-# G7 clones the other 5 repos they are covered with no change here.
+# Scope auto-extends: it scans every git repo under ~/github/engels74-bot/fleet/
+# (the fleet clone root), so a newly cloned fleet repo is covered with no change here.
 set -uo pipefail
 
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot}"
+GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 THRESHOLD_DAYS="${STALE_BRANCH_DAYS:-14}"
 GIT="${GIT_BIN:-/usr/bin/git}"
 NOW="$(date +%s)"

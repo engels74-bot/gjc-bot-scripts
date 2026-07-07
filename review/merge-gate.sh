@@ -13,7 +13,7 @@
 set -uo pipefail
 
 STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot}"
+GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 LEDGER="${MERGE_GATE_LEDGER:-$STATE_DIR/merge-gate.jsonl}"
 LEDGER_LOCK="$STATE_DIR/merge-gate.lock"
 REVIEW_LOCK="$STATE_DIR/review.lock"

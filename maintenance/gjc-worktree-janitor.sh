@@ -27,7 +27,7 @@
 set -euo pipefail
 
 STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot}"
+GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 LOCK="$STATE_DIR/gjc.lock"
 LOG="$STATE_DIR/janitor.log"
 GRACE_SECONDS="${JANITOR_GRACE_SECONDS:-600}"   # 10 minutes

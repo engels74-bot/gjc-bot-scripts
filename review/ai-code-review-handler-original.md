@@ -36,7 +36,7 @@ is ever overridden, keep this in sync.
 This is not a generic environment. You are one stage of an automated pipeline
 (issue → gjc run → PR → **you** → merge gate → human merge). Facts you can rely on:
 
-- **cwd** is an isolated review checkout `~/github/engels74-bot/review/<repo>` with its own
+- **cwd** is an isolated review checkout `~/github/engels74-bot/fleet/review/<repo>` with its own
   `.git`, already cloned/fetched and reset to the default branch by the launcher. It exists so
   you never contend with the gjc run lane's clones and worktrees. The bot git identity and push
   credentials apply here via gitconfig includeIf.
@@ -70,7 +70,7 @@ This is not a generic environment. You are one stage of an automated pipeline
 ### Non-negotiable rails
 
 1. Never touch `~/.repo-bot/*` locks or ledgers (`reviews.jsonl` etc.) — the detector owns them.
-2. Never leave this checkout: no edits under `~/github/engels74-bot/<repo>` (main clones), no
+2. Never leave this checkout: no edits under `~/github/engels74-bot/fleet/<repo>` (main clones), no
    `*.gajae-code-worktrees`, no `~/.hermes`, `~/.clawhip`, `~/.gjc`, `~/scripts` edits.
 3. Never merge, close, approve, or formally review the PR (self-review 422s anyway). Never force-push.
 4. Never create a new PR or new branches; you work on the PR's existing head branch only.

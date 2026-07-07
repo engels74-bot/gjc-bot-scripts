@@ -3,16 +3,17 @@
 # headless). Fire-and-forgets the handler for one PR, holding review.lock for its
 # whole lifetime, with clawhip agent.* narration. Called by review-detector.sh.
 #
-# The handler is the user's UNMODIFIED response engine (byte-exact template); this
+# The handler is the user's response engine, logic untouched (only the runtime-context
+# path references were updated for the fleet/ clone layout, 2026-07-07); this
 # launcher only fills its Config block (REPO/PR_ID/REVIEW_ID/models/guidelines) at
 # runtime and runs it in an ISOLATED per-repo review checkout under
-# ~/github/engels74-bot/review/<repo> (own .git → never contends with the gjc lane;
+# ~/github/engels74-bot/fleet/review/<repo> (own .git → never contends with the gjc lane;
 # under the bot's gitconfig includeIf → bot identity + push credentials).
 set -uo pipefail
 
 STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
 SCRIPTS_DIR="${REPO_BOT_SCRIPTS:-$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot}"
+GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 GH_OWNER="${REPO_BOT_GH_OWNER:-engels74}"
 REVIEW_ROOT="${REVIEW_CHECKOUT_ROOT:-$GH_ROOT/review}"
 REVIEW_LOCK="$STATE_DIR/review.lock"
