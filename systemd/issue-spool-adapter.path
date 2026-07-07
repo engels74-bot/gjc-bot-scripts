@@ -6,7 +6,7 @@ Documentation=file:/home/cvps/documentation/hermes-phase-g-plan.md
 # clawhip's localfile sink appends github.issue-opened records here; each append
 # triggers the adapter. The adapter re-reads the whole spool and dedups via the
 # ledger, so a coalesced/missed trigger is self-correcting.
-PathModified=/home/cvps/.repo-bot/issue-spool.jsonl
+PathModified=/home/cvps/.gjc-bot/issue-spool.jsonl
 Unit=issue-spool-adapter.service
 
 [Install]

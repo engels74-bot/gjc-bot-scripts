@@ -11,7 +11,7 @@
 # SIGHUP / SIGTERM / crash cases it misses.
 #
 # A launch worktree is removed ONLY when ALL of these hold:
-#   (i)   the global single-flight lock (~/.repo-bot/gjc.lock) is FREE — i.e. no
+#   (i)   the global single-flight lock (~/.gjc-bot/gjc.lock) is FREE — i.e. no
 #         live gjc run is in progress. This janitor holds the lock for the whole
 #         pass, so a run cannot start mid-scan (closes the timer race).
 #   (ii)  no live tmux pane is CWD-inside the worktree (pane_current_path AND the
@@ -26,8 +26,8 @@
 
 set -euo pipefail
 
-STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
+STATE_DIR="${GJC_BOT_STATE:-$HOME/.gjc-bot}"
+GH_ROOT="${GJC_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 LOCK="$STATE_DIR/gjc.lock"
 LOG="$STATE_DIR/janitor.log"
 GRACE_SECONDS="${JANITOR_GRACE_SECONDS:-600}"   # 10 minutes

@@ -16,10 +16,10 @@
 # number+repo precede title (alpha key order) so they survive truncation.
 set -uo pipefail
 
-STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-SCRIPTS_DIR="${REPO_BOT_SCRIPTS:-$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
-GH_OWNER="${REPO_BOT_GH_OWNER:-engels74}"
+STATE_DIR="${GJC_BOT_STATE:-$HOME/.gjc-bot}"
+SCRIPTS_DIR="${GJC_BOT_SCRIPTS:-$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)}"
+GH_ROOT="${GJC_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
+GH_OWNER="${GJC_BOT_GH_OWNER:-engels74}"
 SPOOL="${ISSUE_SPOOL:-$STATE_DIR/issue-spool.jsonl}"
 LEDGER="${ISSUE_LEDGER:-$STATE_DIR/issues.jsonl}"
 LEDGER_LOCK="$STATE_DIR/issues.lock"

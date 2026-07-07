@@ -8,7 +8,7 @@
 # (the fleet clone root), so a newly cloned fleet repo is covered with no change here.
 set -uo pipefail
 
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
+GH_ROOT="${GJC_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 THRESHOLD_DAYS="${STALE_BRANCH_DAYS:-14}"
 GIT="${GIT_BIN:-/usr/bin/git}"
 NOW="$(date +%s)"

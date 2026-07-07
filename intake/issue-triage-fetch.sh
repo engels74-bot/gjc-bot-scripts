@@ -8,8 +8,8 @@ set -uo pipefail
 
 GH="${GH_BIN:-/home/linuxbrew/.linuxbrew/bin/gh}"
 JQ="${JQ_BIN:-/home/linuxbrew/.linuxbrew/bin/jq}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
-GH_OWNER="${REPO_BOT_GH_OWNER:-engels74}"
+GH_ROOT="${GJC_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
+GH_OWNER="${GJC_BOT_GH_OWNER:-engels74}"
 GH_TOKEN="$(grep '^GITHUB_TOKEN=' "$HOME/.hermes/.env" 2>/dev/null | cut -d= -f2-)"
 export GH_TOKEN
 SINCE="$(date -d '7 days ago' +%F 2>/dev/null || date +%F)"

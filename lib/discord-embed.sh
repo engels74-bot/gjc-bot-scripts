@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# lib/discord-embed.sh — shared GJCEMBED1 envelope emitter for repo-bot scripts.
+# lib/discord-embed.sh — shared GJCEMBED1 envelope emitter for gjc-bot scripts.
 #
 # Source this file, then call `discord_embed`. It builds the GJCEMBED1 delimiter
 # envelope and sends it via `clawhip send`, so the message flows through gjc-relay
 # and renders as a design-system embed (single source of truth for colour/emoji/
 # layout: ~/.gjc-relay/design-system.json — the SAME file the clawhip route
 # templates use, so a given kind looks identical whether it came from clawhip or
-# from a repo-bot script).
+# from a gjc-bot script).
 #
 # Usage:
 #   discord_embed --channel <id> --kind <kind> [--repo R] [--status S] \

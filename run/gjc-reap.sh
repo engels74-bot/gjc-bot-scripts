@@ -6,7 +6,7 @@
 # `tmux kill-session` alone only signals the pane's top shell and ORPHANS the
 # descendants (the in-session gjc-run.sh wrapper that holds gjc.lock survives,
 # keeping the lock held). Killing the wrapper closes its held fd, releasing
-# ~/.repo-bot/gjc.lock. A janitor pass then clears any orphaned launch worktree.
+# ~/.gjc-bot/gjc.lock. A janitor pass then clears any orphaned launch worktree.
 # This is the second, independent stop paired with the wrapper's own `timeout`.
 #
 # Safety: only descendants of the named session's pane_pid(s) are touched
@@ -14,8 +14,8 @@
 # signals itself, its parent, or PID 1.
 set -uo pipefail
 
-STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-SCRIPTS_DIR="${REPO_BOT_SCRIPTS:-$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)}"
+STATE_DIR="${GJC_BOT_STATE:-$HOME/.gjc-bot}"
+SCRIPTS_DIR="${GJC_BOT_SCRIPTS:-$(cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")/.." && pwd)}"
 LOG="$STATE_DIR/gjc-run.log"
 TMUX_BIN="${TMUX_BIN_OVERRIDE:-/home/linuxbrew/.linuxbrew/bin/tmux}"
 JANITOR="${JANITOR_BIN:-$SCRIPTS_DIR/maintenance/gjc-worktree-janitor.sh}"

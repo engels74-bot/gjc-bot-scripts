@@ -12,8 +12,8 @@
 # advisory gate.)
 set -uo pipefail
 
-STATE_DIR="${REPO_BOT_STATE:-$HOME/.repo-bot}"
-GH_ROOT="${REPO_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
+STATE_DIR="${GJC_BOT_STATE:-$HOME/.gjc-bot}"
+GH_ROOT="${GJC_BOT_GH_ROOT:-$HOME/github/engels74-bot/fleet}"
 LEDGER="${MERGE_GATE_LEDGER:-$STATE_DIR/merge-gate.jsonl}"
 LEDGER_LOCK="$STATE_DIR/merge-gate.lock"
 REVIEW_LOCK="$STATE_DIR/review.lock"
@@ -26,8 +26,8 @@ CLAWHIP="${CLAWHIP_BIN:-/home/cvps/.cargo/bin/clawhip}"
 FLOCK="${FLOCK_BIN:-/usr/bin/flock}"
 # Shared design-system embed helper (Discord unification).
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/lib/discord-embed.sh"
-GH_OWNER="${REPO_BOT_GH_OWNER:-engels74}"
-BOT="${REPO_BOT_LOGIN:-engels74-bot}"
+GH_OWNER="${GJC_BOT_GH_OWNER:-engels74}"
+BOT="${GJC_BOT_LOGIN:-engels74-bot}"
 # REPOS auto-scales to every cloned bot repo (G7 fan-out = just clone the repos).
 list_bot_repos() { ( shopt -s nullglob; for d in "$GH_ROOT"/*/; do d="${d%/}"; b="${d##*/}"; case "$b" in review|*.gajae-code-worktrees) continue ;; esac; [ -d "$d/.git" ] && printf '%s ' "$b"; done ); }
 REPOS="${MERGE_GATE_REPOS:-$(list_bot_repos)}"

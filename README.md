@@ -10,7 +10,7 @@ review/merge gates, and report status to Discord via `gjc-relay`.
 Scripts are grouped by their role in the issue → run → review pipeline. Each
 script resolves its own repo root at runtime (via `${BASH_SOURCE[0]}`), so the
 folders can be relocated or symlinked without editing paths; the
-`REPO_BOT_SCRIPTS` env var still overrides the root when needed.
+`GJC_BOT_SCRIPTS` env var still overrides the root when needed.
 
 | Path | Purpose |
 | --- | --- |
